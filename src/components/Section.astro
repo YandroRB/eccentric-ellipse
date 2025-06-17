@@ -1,0 +1,6 @@
+---
+const { identificador, className = "" } = Astro.props;
+---
+<section id={identificador} class={className}>
+    <slot/>
+</section>

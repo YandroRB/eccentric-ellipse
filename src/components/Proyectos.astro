@@ -1,6 +1,26 @@
 ---
 import Section from "./Section.astro";
+import ProyectoBox from "./ProyectoBox.astro";
+import Java from "./icons/Java.astro";
+import Spring from "./icons/Spring.astro";
 ---
-<Section identificador="proyectos" className="min-h-[calc(100vh-3.25rem)]">
 
+<Section
+  identificador="proyectos"
+  className="min-h-screen pt-5 scroll-mt-14 px-4 space-y-5"
+>
+  <h2 class="text-textt/75 text-2xl md:text-4xl font-semibold ">Proyectos</h2>
+  <div
+    class="grid justify-center gap-4 grid-cols-[repeat(auto-fit,_minmax(300px,450px))]"
+  >
+  <ProyectoBox
+   titulo="Todo List"
+   img={{
+    image:"https://www.xenonfactory.es/wp-content/uploads/2020/12/Backend-y-Frontend-separacion.png",
+    alt:"proyecto 1"
+   }}
+   icons={[{icon:Java,label:"Java"},{icon:Spring,label:"Spring Boot"}]}
+   repoUrl="https://github.com/YandroRB/TodoList-API"
+  />
+  </div>
 </Section>

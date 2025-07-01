@@ -1,0 +1,50 @@
+---
+interface iconProp{
+  icon:AstroComponentFactory;
+  label:string;
+}
+interface imageProp{
+  image:string,
+  alt:string
+}
+
+interface Props{
+  titulo:string,
+  img:imageProp,
+  icons:iconProp[],
+  repoUrl:string
+}
+
+import GitHub from "./icons/GitHub.astro";
+
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
+const{titulo,img,icons,repoUrl}=Astro.props as Props
+---
+
+<article
+  class="flex flex-col space-y-5 text-textp rounded-sm bg-background-page/55 shadow-[0_0_10px_rgba(4,120,87,0.3)] ring-1 ring-emerald-400/20 px-3 py-4"
+>
+  <div class="w-full aspect-[2/1] rounded-sm">
+    <img  class="w-full h-full object-cover rounded-sm" src={img.image} alt={img.alt}/>
+  </div>
+  <h3 class="font-semibold text-xl text-center">{titulo}</h3>
+  <div class="flex justify-center gap-4">
+    {
+      icons.map(({icon:Icon,label})=>(
+        <div class="flex flex-col items-center w-12">
+          <Icon class="w-10 h-10" />
+          <span class="text-sm mt-1 text-center">{label}</span>
+        </div>
+      ))
+    }
+  </div>
+  <a
+    target="_blank"
+    href={repoUrl}
+    class="mx-auto w-fit inline-flex items-center gap-2 px-6 py-3 outline-2
+   outline-textt/45 rounded-bl-md rounded-tr-md rounded-tl-xs rounded-br-xs
+    bg-background-box text-textp font-semibold shadow-md hover:bg-textt/35 md:hover:shadow-emerald-700 transition-all duration-300"
+    ><GitHub width="32" height="32" /> Ver Repositorio</a
+  >
+</article>

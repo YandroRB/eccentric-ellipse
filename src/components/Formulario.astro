@@ -1,0 +1,72 @@
+---
+import Modal from "./Modal.astro";
+import Spinner from "./Spinner.astro";
+
+---
+
+<form id="formContacto" class=" md:mx-auto flex flex-col  max-w-[425px] space-y-5  text-textp rounded-sm bg-background-page/55 shadow-[0_0_10px_rgba(4,120,87,0.3)] ring-1 ring-emerald-400/20 px-3 py-5">
+  <div class="flex flex-col space-y-1">
+    <label for="nombre">Nombre:</label>
+    <input class="bg-background-box rounded-sm p-2"  type="text" id="nombre" name="nombre" required />
+  </div>
+  <div class="flex flex-col space-y-1">
+    <label for="correo">Correo electronico:</label>
+    <input class="bg-background-box rounded-sm p-2" type="email" id="correo" name="correo" required />
+  </div>
+  <div class="flex flex-col space-y-1">
+    <label for="mensaje">Mensaje:</label>
+    <textarea
+      class="resize-none bg-background-box rounded-sm p-2"
+      name="mensaje"
+      id="mensaje"
+      rows="5"
+      cols="30"
+      required></textarea>
+  </div>
+  <button class="mx-auto w-fit inline-flex items-center gap-2 px-6 py-2 outline-2
+   outline-textt/45 rounded-bl-md rounded-tr-md rounded-tl-xs rounded-br-xs
+    bg-background-box text-textp font-semibold shadow-md hover:bg-textt/35 md:hover:shadow-emerald-700 transition-all duration-300
+    hover:cursor-pointer " type="submit">Enviar</button>
+</form>
+<div id="estado" class=" hidden size-full absolute top-0 left-0  items-center bg-black/65 justify-center">
+    <Spinner/>
+    <Modal/>
+</div>
+<script>
+
+  const form = document.getElementById("formContacto") as HTMLFormElement;
+  const estado = document.getElementById("estado");
+  const modal= document.getElementById("miDialogo") as HTMLDialogElement;
+  
+  if (form && estado && modal) {
+    form.addEventListener("submit", async (e: SubmitEvent) => {
+      e.preventDefault();
+      estado.classList.add('flex');
+      estado.classList.remove('hidden');
+      modal.show();
+      
+      const formData ={
+        nombre:form.nombre?.value??'',
+        correo:form.correo?.value??'',
+        mensaje:form.mensaje?.value??''
+      }
+      try {
+        const respuesta = await fetch("/api/contacto", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers:{'Content-Type': 'application/json'}
+        });
+        if (respuesta.ok) {
+          estado.textContent = "Mensaje enviado con éxito";
+          form.reset();
+        } else {
+          estado.textContent = "Ocurrio un error";
+        }
+      } catch (error) {
+        estado.textContent="Error de conexion";
+        console.error(error);
+      }
+    });
+  }
+
+</script>

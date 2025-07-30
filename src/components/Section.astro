@@ -1,5 +1,10 @@
 ---
-const { identificador, className = "" } = Astro.props;
+interface Props{
+    identificador:string,
+    className:string
+}
+
+const { identificador, className = "" } = Astro.props as Props;
 ---
 <section id={identificador} class={className}>
     <slot/>

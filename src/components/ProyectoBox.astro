@@ -23,7 +23,7 @@ const{titulo,img,icons,repoUrl}=Astro.props as Props
 ---
 
 <article
-  class="flex flex-col space-y-5 text-textp rounded-sm bg-background-page/55 shadow-[0_0_10px_rgba(4,120,87,0.3)] ring-1 ring-emerald-400/20 px-3 py-4"
+  class="box shadow-main"
 >
   <div class="w-full aspect-[2/1] rounded-sm">
     <img  class="w-full h-full object-cover rounded-sm" src={img.image} alt={img.alt}/>
@@ -42,9 +42,7 @@ const{titulo,img,icons,repoUrl}=Astro.props as Props
   <a
     target="_blank"
     href={repoUrl}
-    class="mx-auto w-fit inline-flex items-center gap-2 px-6 py-3 outline-2
-   outline-textt/45 rounded-bl-md rounded-tr-md rounded-tl-xs rounded-br-xs
-    bg-background-box text-textp font-semibold shadow-md hover:bg-textt/35 md:hover:shadow-emerald-700 transition-all duration-300"
+    class="btn shadow-hover"
     ><GitHub width="32" height="32" /> Ver Repositorio</a
   >
 </article>

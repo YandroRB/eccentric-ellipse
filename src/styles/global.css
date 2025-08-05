@@ -9,3 +9,40 @@
     --color-textpo:#e8f8f5;
     --font-lato:"Lato", sans-serif;
 }
+.shadow-header{
+    @apply shadow-md shadow-emerald-700/30
+}
+.shadow-body{
+    @apply shadow-2xl shadow-emerald-700/50 ring-1 ring-emerald-400/20 
+}
+.shadow-main{
+    @apply  shadow-[0_0_10px_rgba(4,120,87,0.3)] ring-1 ring-emerald-400/20 
+}
+.shadow-hover{
+    @apply shadow-md hover:bg-textt/35 md:hover:shadow-emerald-700 transition-all duration-300
+}
+.hover-element{
+ @apply md:hover:shadow-2xl  md:shadow-emerald-700/75
+}
+.hover-link{
+    @apply hover:text-textt/75 hover:text-shadow-2xs hover:text-shadow-emerald-400
+}
+.btn{
+   @apply mx-auto w-fit inline-flex items-center gap-2 px-6 py-3 outline-2
+ outline-textt/45 rounded-bl-md rounded-tr-md rounded-tl-xs rounded-br-xs
+  bg-background-box  font-semibold 
+}
+.btn2{
+    @apply px-6 py-2 bg-emerald-700 outline-2 outline-emerald-500 hover:bg-emerald-800 text-textpo  tracking-wide 
+    rounded-bl-md rounded-tr-md rounded-tl-xs rounded-br-xs
+    cursor-pointer shadow-md md:hover:shadow-emerald-500 transition-all duration-300
+}
+.box{
+    @apply flex flex-col space-y-5  rounded-sm bg-background-page/55  px-3 py-5
+}
+.input{
+    @apply bg-background-box rounded-sm p-2
+}
+.input-box{
+   @apply flex flex-col space-y-1
+}

@@ -43,13 +43,13 @@ export default function FormularioContacto() {
     <>
      <form
       id="formContacto"
-      className="md:mx-auto flex flex-col max-w-[425px] space-y-5 text-textp rounded-sm bg-background-page/55 shadow-[0_0_10px_rgba(4,120,87,0.3)] ring-1 ring-emerald-400/20 px-3 py-5"
+      className="md:mx-auto  max-w-[425px] box shadow-main"
       onSubmit={handleSubmit}
     >
-      <div className="flex flex-col space-y-1">
+      <div className="input-box">
         <label htmlFor="nombre">Nombre:</label>
         <input
-          className="bg-background-box rounded-sm p-2"
+          className="input"
           type="text"
           id="nombre"
           name="nombre"
@@ -57,10 +57,10 @@ export default function FormularioContacto() {
         />
       </div>
 
-      <div className="flex flex-col space-y-1">
+      <div className="input-box">
         <label htmlFor="correo">Correo electrónico:</label>
         <input
-          className="bg-background-box rounded-sm p-2"
+          className="input"
           type="email"
           id="correo"
           name="correo"
@@ -68,10 +68,10 @@ export default function FormularioContacto() {
         />
       </div>
 
-      <div className="flex flex-col space-y-1">
+      <div className="input-box">
         <label htmlFor="mensaje">Mensaje:</label>
         <textarea
-          className="resize-none bg-background-box rounded-sm p-2"
+          className="resize-none input"
           name="mensaje"
           id="mensaje"
           rows={5}
@@ -81,10 +81,7 @@ export default function FormularioContacto() {
       </div>
 
       <button
-        className="mx-auto w-fit inline-flex items-center gap-2 px-6 py-2 outline-2
-        outline-textt/45 rounded-bl-md rounded-tr-md rounded-tl-xs rounded-br-xs
-        bg-background-box text-textp font-semibold shadow-md hover:bg-textt/35 md:hover:shadow-emerald-700 transition-all duration-300
-        hover:cursor-pointer"
+        className="btn shadow-hover cursor-pointer"
         type="submit"
       >
         Enviar

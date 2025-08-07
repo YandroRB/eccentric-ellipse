@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets'
 import foto from '../assets/foto.png'
 import Section from './Section.astro'
 import Descargar from './icons/Descargar.astro'
@@ -8,9 +7,9 @@ import ArrowDown from './icons/ArrowDown.astro'
 <Section identificador="inicio" className="flex flex-col scroll-mt-14 items-center md:space-y-12 space-y-8 h-screen">
     <h1 class=" text-textt/75 text-2xl md:text-4xl font-semibold mt-8">Santiago Rodriguez Bone</h1>
     <div class="h-[175px]" >
-        <Image
+        <img
         class="w-full h-full hover:cursor-pointer object-cover rounded-full  bg-emerald-400/10 ring-3 ring-textt/75 hover:ring-textp transition duration-300 hover-element" 
-        src={foto} alt="rostro de Santiago Rodriguez Bone">
+        src={foto.src} alt="rostro de Santiago Rodriguez Bone"/>
     </div>
     <p class="px-5 text-textp/95 text-base/6 md:w-1/2">
         Soy un programador backend al que le apasionan los retos y aprender de ellos. 

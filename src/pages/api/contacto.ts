@@ -10,7 +10,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     
     const fechaActual=Date.now();
-    const limit=3;
+    const limit=7;
     const windowsMS=60*60*1000;
     
     const{data,error:IPError}=await supabase
